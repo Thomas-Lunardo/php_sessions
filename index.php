@@ -5,7 +5,12 @@ if(!isset($_SESSION)){
     session_start();
 }
 
-$_SESSION['gateau'] = $cookie;
+if (isset($_GET['add_to_cart'])) {   
+    $product = $_GET['add_to_cart'];   
+    if (isset($catalog[$product])) {          
+        $_SESSION['cart'][] = $catalog[$product];
+    }
+}   
 
 ?>
 <section class="cookies container-fluid">

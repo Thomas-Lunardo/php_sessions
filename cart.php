@@ -7,9 +7,17 @@ if(!isset($_SESSION)){
 <section class="cookies container-fluid">
     <div class="row">
 
-<?php
-echo 'Bonjour ' . $_SESSION['gateau'];
-?>
+    <?php
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $cookie) {
+        echo '<h1>' . $cookie['name'] . '</h1>';
+        echo '<p>' . $cookie['description'] . '</p>';
+    }
+} else {
+
+            echo 'Your cart is empty.';
+}
+        ?>
   </div>
     </div>
 </section>
